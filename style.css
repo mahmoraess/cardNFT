@@ -7,11 +7,10 @@ body {
   color: #333;
 }
 
-/* Header */
 header {
   text-align: center;
-  margin: 50px 120px;
-  color: #23131a;
+  margin: 30px 0;
+  color: #9c2b5a;
 }
 
 header .logo {
@@ -20,13 +19,17 @@ header .logo {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border-style: dotted;
+  border: 2px solid #b8336ab3;
+  object-fit: cover;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 1px;
 }
+
 
 /* Lista de cards */
 .card-list {
@@ -165,4 +168,18 @@ header h1 {
 .card-footer p strong{
   font-weight: 600;
   color: #111;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
