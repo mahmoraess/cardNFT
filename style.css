@@ -1,111 +1,168 @@
-/* Reset */
-* {
+/* Fonte e base */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background: #ff8d94;
+  color: #333;
 }
 
-body {
-  background-color: #f2f2f2;
-  font-family: 'Arial', sans-serif;
-  color: #555;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Header */
+header {
+  text-align: center;
+  margin: 50px 120px;
+  color: #23131a;
+}
+
+header .logo {
+  display: block;
+  margin: 0 auto 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border-style: dotted;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Lista de cards */
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Card */
 .card {
-  background-color: #fff;
-  border-radius: 15px;
+  background: #fff;
+  border-radius: 12px;
   padding: 20px;
-  max-width: 300px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-/* Imagem */
-.card-image {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.card-image img {
-  width: 100%;
-  display: block;
-  border-radius: 10px;
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(200, 100, 200, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.card-image:hover .overlay {
-  opacity: 1;
-  cursor: pointer;
-}
-
-/* Título */
-.card-title {
-  color: #222;
+.card h2 {
   margin: 15px 0 10px;
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.card-title:hover {
   color: #b8336a;
-  cursor: pointer;
 }
 
-/* Descrição */
-.card-description {
-  font-size: 0.9rem;
-  margin-bottom: 15px;
+.card p {
+  font-size: 14px;
+  color: #666;
 }
 
-/* Info */
-.card-info {
+/* Infos adicionais */
+.details {
+  margin: 10px 0;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #555;
+  text-align: left;
+}
+
+.details li {
+  margin-bottom: 5px;
+}
+
+/* Animações (Animate.css) */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Responsivo */
+@media (min-width: 600px) {
+  .card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .card-list {
+    grid-template-columns: repeat(4, 1fr); /* agora 4 cards no desktop */
+  }
+}
+
+/* ---------- Bottom info & footer (corrigido) ---------- */
+
+/* Preço + disponibilidade */
+.card-info{
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+  justify-content: space-between; /* preço à esquerda, disponibilidade à direita */
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin-top: 10px;
+  white-space: nowrap; /* evita quebra dentro dos itens principais */
 }
 
-.price {
-  color: #b8336a;
-  font-weight: bold;
+/* Se a largura for pequena, os itens podem quebrar verticalmente */
+@media (max-width: 520px) {
+  .card-info{
+    flex-direction: row;
+    gap: 8px;
+  }
 }
 
-.time {
-  font-size: 0.85rem;
-  color: #777;
+/* estilo do preço */
+.price{
+  color: #b8336a;   /* cor destaque */
+  font-weight: 700;
+  font-size: 1rem;
 }
 
-/* Rodapé */
-.card-footer {
+/* estilo do tempo / estoque */
+.time{
+  color: #666;
+  font-size: 0.88rem;
+}
+
+/* Footer com marca (avatar) e nome */
+.card-footer{
   display: flex;
   align-items: center;
-  border-top: 1px solid #ddd;
-  padding-top: 15px;
+  gap: 10px;
+  padding-top: 12px;
+  margin-top: 6px;
 }
 
-.avatar {
-  width: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
+/* Avatar (marca) menor e com border-radius discreto */
+.avatar{
+  width: 36px;        /* reduzir tamanho */
+  height: 36px;
+  border-radius: 8px; /* cantos arredondados, não circular grande */
+  object-fit: cover;
+  display: inline-block;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
-.card-footer p strong {
+/* texto da marca */
+.card-footer p{
+  margin: 0;
+  font-size: 0.92rem;
   color: #222;
+}
+
+/* Se quiser que o nome da marca fique um pouco mais discreto */
+.card-footer p strong{
+  font-weight: 600;
+  color: #111;
 }
