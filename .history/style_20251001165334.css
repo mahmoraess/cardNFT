@@ -79,6 +79,7 @@ header h1 {
   margin-bottom: 5px;
 }
 
+/* Animações (Animate.css) */
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -93,7 +94,7 @@ header h1 {
 
 @media (min-width: 900px) {
   .card-list {
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr); /* agora 4 cards no desktop */
   }
 }
 
